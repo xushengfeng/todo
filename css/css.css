@@ -5,7 +5,15 @@ html {
 }
 
 body {
-  margin: 0;
+    margin: 0;
+}
+
+item-b {
+    display: flex;
+}
+item-b > div {
+    display: flex;
+    align-items: center;
 }
 
 @media (prefers-color-scheme: dark) {
