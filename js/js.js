@@ -15,8 +15,8 @@ function save() {
             o[i.id] = {
                 time: i.time,
                 text: i.text,
-                list: i.list,
-                date: i.text,
+                list: i.list.join(","),
+                date: i.date,
             };
     }
 
