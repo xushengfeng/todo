@@ -27,3 +27,22 @@ function save() {
     a.click();
     URL.revokeObjectURL(String(blob));
 }
+
+var upload_el = document.getElementById("upload_file");
+upload_el.onchange = () => {
+    var filereader = new FileReader();
+    filereader.readAsText(upload_el.files[0]);
+    filereader.onload = () => {
+        let o = JSON.parse(filereader.result);
+        render(o);
+    };
+};
+
+function render(o) {
+    let t = "";
+    for (let i in o) {
+        let item = `<item-b id="${i}" time="${o[i].time}" text="${o[i].text}" list="${o[i].list}" date="${o[i].date}"></item-b>`;
+        t += item;
+    }
+    document.getElementById("main").innerHTML = t;
+}
