@@ -28,6 +28,8 @@ function save() {
     URL.revokeObjectURL(String(blob));
 }
 
+document.getElementById("download").onclick = save;
+
 var upload_el = document.getElementById("upload_file");
 upload_el.onchange = () => {
     var filereader = new FileReader();

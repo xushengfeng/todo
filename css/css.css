@@ -13,12 +13,13 @@ body {
     margin: 0;
 }
 
-#upfile {
+body > button {
     width: 16px;
     height: 16px;
     background-color: var(--l-color);
     border-radius: 8px;
     margin-bottom: 16px;
+    border: none;
 }
 
 #upload_file {
