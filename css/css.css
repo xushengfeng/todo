@@ -26,6 +26,7 @@ item-b {
 item-b > input[type="time"] {
     border: none;
     padding: 0;
+    background-color: #0000;
 }
 item-b > input[type="text"] {
     flex-grow: 1;
@@ -42,6 +43,7 @@ item-b > input[type="text"]:focus {
 item-b > input[type="date"] {
     border: none;
     padding: 0;
+    background-color: #0000;
 }
 item-b > div {
     display: flex;
