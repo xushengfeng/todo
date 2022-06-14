@@ -89,3 +89,19 @@ progress-b > div {
 
 @media (prefers-color-scheme: dark) {
 }
+
+@media (max-width: 900px) {
+    #main {
+        width: 100%;
+    }
+    item-b > input[type="text"] {
+        width: auto;
+        margin: 0 4px;
+    }
+    item-b > input[type="date"] {
+        width: 16px;
+    }
+    progress-b {
+        width: 100px;
+    }
+}
