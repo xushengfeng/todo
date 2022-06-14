@@ -1,6 +1,7 @@
 :root {
     --l-color: #dddddd;
-    --p-color0: #424242;
+    --p-color-play0: #bdbdbd;
+    --p-color-play1: #424242;
     --p-color1: #e2e2e2;
     --color: #000;
 }
@@ -12,7 +13,7 @@ body {
     margin: 0;
 }
 
-#upfile{
+#upfile {
     width: 16px;
     height: 16px;
     background-color: var(--l-color);
@@ -20,7 +21,7 @@ body {
     margin-bottom: 16px;
 }
 
-#upload_file{
+#upload_file {
     display: none;
 }
 
@@ -62,31 +63,6 @@ item-b > div {
     align-items: center;
 }
 
-lock-b {
-    display: block;
-    position: relative;
-    width: 16px;
-    height: 16px;
-    background-size: cover;
-    background-position: center;
-    background-image: url(../asset/play.svg);
-}
-
-lock-b > input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.lock-b-lock {
-    background-image: url(../asset/pause.svg) !important;
-}
-
 progress-b {
     border-radius: 8px;
     width: 200px;
@@ -98,7 +74,11 @@ progress-b {
 progress-b > div {
     height: 100%;
     border-radius: inherit;
-    background-color: var(--p-color0);
+    background-color: var(--p-color-play0);
+}
+
+.pro_play > div {
+    background-color: var(--p-color-play1) !important;
 }
 
 @media (prefers-color-scheme: dark) {
