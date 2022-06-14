@@ -36,10 +36,8 @@ item-b {
     display: flex;
     width: 100%;
 }
-item-b > input[type="time"] {
-    border: none;
-    padding: 0;
-    background-color: #0000;
+item-b > time-b > span {
+    outline: none;
 }
 item-b > input[type="text"] {
     flex-grow: 1;
