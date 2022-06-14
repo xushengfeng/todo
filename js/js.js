@@ -46,3 +46,7 @@ function render(o) {
     }
     document.getElementById("main").innerHTML = t;
 }
+
+document.getElementById("upfile").onclick = () => {
+    upload_el.click();
+};

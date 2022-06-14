@@ -12,6 +12,18 @@ body {
     margin: 0;
 }
 
+#upfile{
+    width: 16px;
+    height: 16px;
+    background-color: var(--l-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+#upload_file{
+    display: none;
+}
+
 #main {
     width: 70%;
     margin: auto;
