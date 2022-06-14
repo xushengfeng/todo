@@ -1,5 +1,7 @@
 :root {
     --l-color: #dddddd;
+    --p-color0: #424242;
+    --p-color1: #e2e2e2;
     --color: #000;
 }
 
@@ -48,6 +50,20 @@ item-b > div {
 item-b > div > input {
     background-color: #0000;
     margin: 0;
+}
+
+progress-b {
+    border-radius: 8px;
+    width: 200px;
+    height: 16px;
+    background-color: var(--p-color1);
+    overflow: hidden;
+}
+
+progress-b > div {
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--p-color0);
 }
 
 @media (prefers-color-scheme: dark) {
