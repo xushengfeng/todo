@@ -22,7 +22,11 @@ function save() {
 
     let a = document.createElement("a");
     let blob = new Blob([JSON.stringify(o)]);
-    a.download = "todo_list.json";
+    a.download = `xtodo-${new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000)
+        .toISOString()
+        .slice(0, 19)
+        .replaceAll(":", "-")
+        .replace("T", "-")}.json`;
     a.href = URL.createObjectURL(blob);
     a.click();
     URL.revokeObjectURL(String(blob));
