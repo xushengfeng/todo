@@ -4,6 +4,7 @@
     --p-color-play1: #424242;
     --p-color1: #e2e2e2;
     --color: #000;
+    --color-w: #fff;
 }
 
 html {
@@ -70,7 +71,14 @@ progress-b {
 progress-b > div {
     height: 100%;
     border-radius: inherit;
+    line-height: 100%;
     background-color: var(--p-color-play0);
+}
+
+progress-b > div > span {
+    mix-blend-mode: difference;
+    color: var(--color-w);
+    margin-left: 4px;
 }
 
 .pro_play > div {
