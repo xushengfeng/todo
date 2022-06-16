@@ -42,6 +42,7 @@ item-b {
 }
 item-b > time-b > span {
     outline: none;
+    font-family: monospace;
 }
 item-b > input[type="text"] {
     flex-grow: 1;
