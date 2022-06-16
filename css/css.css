@@ -5,6 +5,7 @@
     --p-color1: #e2e2e2;
     --color: #000;
     --color-w: #fff;
+    --red: #ff0000;
 }
 
 html {
@@ -44,6 +45,17 @@ item-b {
 .item_hide {
     opacity: 0.5;
     pointer-events: none;
+}
+item-b > button {
+    pointer-events: all;
+    width: 16px;
+    height: 16px;
+    background-color: var(--l-color);
+    border-radius: 8px;
+    border: none;
+}
+item-b > #remove {
+    background-color: var(--red) !important;
 }
 item-b > time-b > span {
     outline: none;
