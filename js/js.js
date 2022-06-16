@@ -56,3 +56,38 @@ function render(o) {
 document.getElementById("upfile").onclick = () => {
     upload_el.click();
 };
+
+var fileHandle;
+
+async function file_load() {
+    [fileHandle] = await window.showOpenFilePicker({
+        types: [
+            {
+                description: "JSON",
+                accept: {
+                    "text/*": [".json"],
+                },
+            },
+        ],
+        excludeAcceptAllOption: true,
+    });
+
+    const file = await fileHandle.getFile();
+
+    if (fileHandle.kind != "file") return;
+
+    let reader = new FileReader();
+    reader.onload = () => {
+        let o = JSON.parse(reader.result);
+        render(o);
+    };
+    reader.readAsText(file);
+}
+
+async function write_file(text) {
+    if (fileHandle) {
+        const writable = await fileHandle.createWritable();
+        await writable.write(text);
+        await writable.close();
+    }
+}
