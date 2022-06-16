@@ -6,6 +6,7 @@
     --color: #000;
     --color-w: #fff;
     --red: #ff0000;
+    --shadow: 0 0 4px rgba(50, 50, 50, 0.3);
 }
 
 html {
@@ -41,6 +42,10 @@ item-b {
     align-items: center;
     width: 100%;
     transition: 0.4s;
+    border-radius: 4px;
+}
+item-b:hover {
+    box-shadow: var(--shadow);
 }
 .item_hide {
     opacity: 0.5;
