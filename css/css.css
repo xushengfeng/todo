@@ -39,6 +39,11 @@ item-b {
     display: flex;
     align-items: center;
     width: 100%;
+    transition: 0.4s;
+}
+.item_hide {
+    opacity: 0.5;
+    pointer-events: none;
 }
 item-b > time-b > span {
     outline: none;
