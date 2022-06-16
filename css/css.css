@@ -43,6 +43,7 @@ item-b {
 item-b > time-b > span {
     outline: none;
     font-family: monospace;
+    font-size: 1rem;
 }
 item-b > input[type="text"] {
     flex-grow: 1;
@@ -60,6 +61,7 @@ item-b > input[type="date"] {
     border: none;
     padding: 0;
     background-color: #0000;
+    font-size: 1rem;
 }
 
 progress-b {
