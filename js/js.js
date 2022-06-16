@@ -19,30 +19,12 @@ function save() {
                 date: i.date,
             };
     }
-
-    let a = document.createElement("a");
-    let blob = new Blob([JSON.stringify(o)]);
-    a.download = `xtodo-${new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000)
-        .toISOString()
-        .slice(0, 19)
-        .replaceAll(":", "-")
-        .replace("T", "-")}.json`;
-    a.href = URL.createObjectURL(blob);
-    a.click();
-    URL.revokeObjectURL(String(blob));
+    write_file(JSON.stringify(o));
 }
 
 document.getElementById("download").onclick = save;
 
 var upload_el = document.getElementById("upload_file");
-upload_el.onchange = () => {
-    var filereader = new FileReader();
-    filereader.readAsText(upload_el.files[0]);
-    filereader.onload = () => {
-        let o = JSON.parse(filereader.result);
-        render(o);
-    };
-};
 
 function render(o) {
     let t = "";
@@ -53,28 +35,36 @@ function render(o) {
     document.getElementById("main").innerHTML = t;
 }
 
-document.getElementById("upfile").onclick = () => {
-    upload_el.click();
-};
-
 var fileHandle;
 
+if (window.showOpenFilePicker) {
+    document.getElementById("upfile").onclick = file_load;
+} else {
+    document.getElementById("upfile").onclick = () => {
+        upload_el.click();
+    };
+    upload_el.onchange = file_load;
+}
+
 async function file_load() {
-    [fileHandle] = await window.showOpenFilePicker({
-        types: [
-            {
-                description: "JSON",
-                accept: {
-                    "text/*": [".json"],
+    let file;
+    if (window.showOpenFilePicker) {
+        [fileHandle] = await window.showOpenFilePicker({
+            types: [
+                {
+                    description: "JSON",
+                    accept: {
+                        "text/*": [".json"],
+                    },
                 },
-            },
-        ],
-        excludeAcceptAllOption: true,
-    });
-
-    const file = await fileHandle.getFile();
-
-    if (fileHandle.kind != "file") return;
+            ],
+            excludeAcceptAllOption: true,
+        });
+        if (fileHandle.kind != "file") return;
+        file = await fileHandle.getFile();
+    } else {
+        file = upload_el.files[0];
+    }
 
     let reader = new FileReader();
     reader.onload = () => {
@@ -89,5 +79,16 @@ async function write_file(text) {
         const writable = await fileHandle.createWritable();
         await writable.write(text);
         await writable.close();
+    } else {
+        let a = document.createElement("a");
+        let blob = new Blob([text]);
+        a.download = `xtodo-${new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000)
+            .toISOString()
+            .slice(0, 19)
+            .replaceAll(":", "-")
+            .replace("T", "-")}.json`;
+        a.href = URL.createObjectURL(blob);
+        a.click();
+        URL.revokeObjectURL(String(blob));
     }
 }
