@@ -74,7 +74,7 @@ async function file_load() {
 }
 
 async function write_file(text) {
-    if (fileHandle) {
+    if (fileHandle && (await fileHandle.requestPermission({ mode: "readwrite" })) === "granted") {
         const writable = await fileHandle.createWritable();
         await writable.write(text);
         await writable.close();
