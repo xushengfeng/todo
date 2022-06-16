@@ -11,13 +11,12 @@ function save() {
     let o = {};
     let item = document.querySelectorAll("item-b");
     for (let i of item) {
-        if (i.text)
-            o[i.id] = {
-                time: i.time,
-                text: i.text,
-                list: i.list.join(","),
-                date: i.date,
-            };
+        o[i.id] = {
+            time: i.time,
+            text: i.text,
+            list: i.list.join(","),
+            date: i.date,
+        };
     }
     write_file(JSON.stringify(o));
 }
