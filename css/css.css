@@ -83,6 +83,8 @@ progress-b > div > span {
     mix-blend-mode: difference;
     color: var(--color-w);
     margin-left: 4px;
+    font-family: monospace;
+    font-size: 1rem;
 }
 
 .pro_play > div {
